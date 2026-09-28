@@ -1,0 +1,30 @@
+#wrapper{
+	margin:0 auto;
+}
+
+*{
+    margin:0;
+    padding:0;
+
+    /* gør at den ikke ændre sig ud med padding når width og andre ting er angivet */
+    box-sizing:border-box;
+}
+
+p{
+    padding-bottom:1em;
+    line-height:1.4em;
+}
+
+img{
+    max-width:100%;
+    height:auto;    
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+ul{
+    list-style: none;
+}
