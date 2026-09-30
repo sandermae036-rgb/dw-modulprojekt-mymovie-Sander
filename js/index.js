@@ -202,20 +202,6 @@ function htmlInserter(nowplayingData, popularData, genreData) {
 
 };
 
-
-
-// genre remake
-function genreInset(id, genre){
-
-    genre.genres.find(function (genreType) {
-      return  genreType.id == id;
-        
-        
-    });
-}
-
-
-
 // rating remake -------------------------------------------------------------
 function ratingRemake(rating) {
     if (rating.includes(0)) {
