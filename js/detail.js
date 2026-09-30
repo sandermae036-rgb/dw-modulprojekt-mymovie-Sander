@@ -15,7 +15,7 @@ async function idFetch(id) {
         });
 
          // genres fetch -----------------------------------------------------------------
-        let genrePromise = await fetch(gUrl, {
+        let genrePromise = await fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", {
             headers: {
                 accept: 'application/json',
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTdkM2UyMDZjMTViZDNkZTQwOWQ5OGIwOGQ3ZWM4OCIsIm5iZiI6MTc5MDYwNDcxMC41MjEsInN1YiI6IjZhYmE3NWE2OTI0Y2Q0OTRkYTg2MmRjZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._YYeSxMiIYrASs_Hk2Cu_nIU8AFii-Eabd-T9XzLn1g'
@@ -28,14 +28,14 @@ async function idFetch(id) {
         let movieJson = await IdPromise.json()
         console.log(movieJson);
 
-        // get the genre json
+        // get the genre json--------------------------------------------------------------
         let genreJsonData = await genrePromise.json();
         console.log(genreJsonData);
 
 
 
         // call inset html function with the fetched data as an augment
-        htmlInserter(movieJson, genreJsonData)
+        htmlInserter(movieJson, genreJsonData.genres)
 
     } catch (error) {
 
@@ -78,12 +78,10 @@ function htmlInserter(movieJson, genreJsonData) {
 
                 <ul>
                    ${movieJson.genres.map(function (id) {
-                                // return `<li>${id}</li>`
-                                
-                                return (`
-                                <li>${genreJsonData.genres.find((genre) => genre.id == id).name}</li>
-                                `)
-                            }).join(" ")}
+                    return (`
+                        <li>${genreJsonData.find((genre) => genre.id == id.id).name}</li>
+                    `)
+                   }).join(" ")}
                 </ul>
             </section>
         </main>
