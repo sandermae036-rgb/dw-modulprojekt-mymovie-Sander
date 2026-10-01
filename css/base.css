@@ -1,5 +1,11 @@
-#wrapper{
+body {
+    background-color: #363636;
+}
+
+#root{
 	margin:0 auto;
+    max-width: 375px;
+    background-color: #fff;
 }
 
 *{
