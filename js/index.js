@@ -122,18 +122,18 @@ function htmlInserter(nowplayingData, popularData, genreData) {
             <section>
 
                 <!-- films -->
-                <a href="">
-
+                <a href="#">
+                    hello
                 </a>
 
                 <!-- tickets -->
-                <a href="">
-
+                <a href="#">
+                    hello
                 </a>
 
                 <!-- bookmarked -->
-                <a href="">
-                    
+                <a href="#">
+                    hello
                 </a>
 
             </section>
@@ -173,6 +173,7 @@ function htmlInserter(nowplayingData, popularData, genreData) {
                     <img src="https://media.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}" alt="${movie.original_title}">
                 </div>
 
+                
                     <h3>${movie.title}</h3>
 
                     <p class="movie--rating">${ratingRemake(movie.vote_average.toString().slice(0, 3))}/10 IMDb</p>
