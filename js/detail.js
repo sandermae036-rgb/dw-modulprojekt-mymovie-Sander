@@ -7,35 +7,19 @@ console.log(movieId);
 async function idFetch(id) {
     try {
         // fetching id from url ---------------------------------------------------------------------------
-        const IdPromise = await fetch("https://api.themoviedb.org/3/movie/" + id + "?language=en-US", {
+        const IdPromise = await fetch("https://api.themoviedb.org/3/movie/" + id + "?append_to_response=videos,credits", {
             headers: {
                 accept: 'application/json',
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTdkM2UyMDZjMTViZDNkZTQwOWQ5OGIwOGQ3ZWM4OCIsIm5iZiI6MTc5MDYwNDcxMC41MjEsInN1YiI6IjZhYmE3NWE2OTI0Y2Q0OTRkYTg2MmRjZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._YYeSxMiIYrASs_Hk2Cu_nIU8AFii-Eabd-T9XzLn1g'
             }
         });
-
-        // genres fetch -----------------------------------------------------------------
-        let genrePromise = await fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", {
-            headers: {
-                accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTdkM2UyMDZjMTViZDNkZTQwOWQ5OGIwOGQ3ZWM4OCIsIm5iZiI6MTc5MDYwNDcxMC41MjEsInN1YiI6IjZhYmE3NWE2OTI0Y2Q0OTRkYTg2MmRjZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._YYeSxMiIYrASs_Hk2Cu_nIU8AFii-Eabd-T9XzLn1g'
-            }
-        });
-
-
 
         // turn it into json --------------------------------------------------------------
         let movieJson = await IdPromise.json()
         console.log(movieJson);
 
-        // get the genre json--------------------------------------------------------------
-        let genreJsonData = await genrePromise.json();
-        console.log(genreJsonData);
-
-
-
         // call inset html function with the fetched data as an augment
-        htmlInserter(movieJson, genreJsonData.genres)
+        htmlInserter(movieJson)
 
     } catch (error) {
 
@@ -48,7 +32,7 @@ idFetch(movieId)
 const root = document.querySelector("#root");
 
 // html inserter -----------------------------------------------------------------------------------------
-function htmlInserter(movieJson, genreJsonData) {
+function htmlInserter(movieJson) {
 
     root.innerHTML = `
         <!-- header ------------------------------------------------------------------------------------------>
@@ -64,8 +48,9 @@ function htmlInserter(movieJson, genreJsonData) {
 
             <!-- trailer -->
             <div>
-                <img src="https://media.themoviedb.org/t/p/w220_and_h330_face${movieJson.poster_path}" alt="${movieJson.original_title}">
+                <iframe src="https://www.youtube.com/embed/${trailerFinder(movieJson.videos.results)}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+           
         </header>
 
         <!-- main -------------------------------------------------------------------------------------->
@@ -81,9 +66,10 @@ function htmlInserter(movieJson, genreJsonData) {
 
                 <ul class="generalInfo__genres">
                    ${movieJson.genres.map(function (genre) {
-                    return (`
-                        <li>${genre.name}</li>
-                    `)}).join(" ")}
+        return (`
+                            <li>${genre.name}</li>
+                        `)
+    }).join(" ")}
                 </ul>
 
                 <table>
@@ -128,7 +114,18 @@ function htmlInserter(movieJson, genreJsonData) {
 
                 <section>
                     <ul>
-                        ${""}
+                        ${movieJson.credits.cast.map(function (castPerson) {
+                            return (`
+                            <li>
+                                <article>
+                                    <div>
+                                        <img src="https://media.themoviedb.org/t/p/w220_and_h330_face${castPerson.profile_path}">
+                                    </div>
+
+                                    <h3>${castPerson.name}</h3>
+                                </article>
+                            </li>
+                        `)}).join(" ")}
                     </ul>
                 </section>
             </section>
@@ -151,6 +148,7 @@ function ratingRemake(rating) {
     }
 }
 
+// film length converter
 function runeTimeConverter(runtime) {
 
     let minutesConverted = runtime / 60
@@ -168,3 +166,17 @@ function runeTimeConverter(runtime) {
     return (hours + "h " + minutes + "m");
 
 };
+
+
+// trailer finder 
+function trailerFinder(videos) {
+
+    let firstTrailer = videos.find(video => video.type == "Trailer");
+    
+    console.log(firstTrailer.key);
+
+
+    return (firstTrailer.key)
+    
+    
+}
