@@ -141,7 +141,7 @@ function htmlInserter(nowplayingData, popularData, genreData) {
     `
 
     // // now showing -------------------------------------------------------------------------------------------------------------------------------------------
-    let nowShowing = document.querySelector(".nowShowing")
+    let nowShowing = document.querySelector(".nowShowing__movies")
 
     nowplayingData.forEach(function (movie) {
 
