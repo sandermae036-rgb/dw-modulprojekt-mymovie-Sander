@@ -77,23 +77,32 @@ function htmlInserter(movieJson, genreJsonData) {
                 <p class="generelInfo__rating">${ratingRemake(movieJson.vote_average.toString().slice(0, 3))}/10 IMDb</p>
 
                 <ul class="generalInfo__genres">
-                   ${movieJson.genres.map(function (id) {
+                   ${movieJson.genres.map(function (genre) {
                     return (`
-                        <li>${genreJsonData.find((genre) => genre.id == id.id).name}</li>
-                    `)
-                   }).join(" ")}
+                        <li>${genre.name}</li>
+                    `)}).join(" ")}
                 </ul>
 
                 <table>
                     <tr>
                         <th>length</th>
+
                         <th>Language</th>
+
                         <th>rating</th>
                     </tr>
                     
                     <tr>
                         <td>${runeTimeConverter(movieJson.runtime)}</td>
-                    </tr>
+
+                        <td>${movieJson.spoken_languages.map(function (test) {
+                           return (test.english_name)
+                        }).join(" ")}</td>
+                    
+                        <td>
+                            ${"PG-13"}
+                        </td>
+                    </tr> 
                 </table>
             </section>
         </main>
@@ -116,17 +125,19 @@ function ratingRemake(rating) {
 }
 
 function runeTimeConverter(runtime) {
-    let timeInHours = runtime / 60
-    console.log(timeInHours);
 
-    // slice so it only takes the first number(hours)
-    let hours = timeInHours.toString().slice(0,1)
+    let minutesConverted = runtime / 60
+    console.log(minutesConverted);
     
-    // slice so it only take the second two numbers(minutes)
-    let minutes = timeInHours.toString().slice(2,4)
+    // hours -------------------------------------------
+    let hours = minutesConverted.toString().slice(0,1)
+    console.log(hours);
     
+    let minutesNotSliced = minutesConverted.toString().slice(2,4) * 60;
+    console.log(minutesNotSliced)
 
-    // return those as a string with (hours)h and (minutes)m
-    return (hours + "h " + minutes + "m")
+    let minutes = minutesNotSliced.toString().slice(0,2)
+
+    return (hours + "h " + minutes + "m");
     
 };
