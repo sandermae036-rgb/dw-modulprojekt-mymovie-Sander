@@ -14,7 +14,7 @@ async function idFetch(id) {
             }
         });
 
-         // genres fetch -----------------------------------------------------------------
+        // genres fetch -----------------------------------------------------------------
         let genrePromise = await fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", {
             headers: {
                 accept: 'application/json',
@@ -60,9 +60,12 @@ function htmlInserter(movieJson, genreJsonData) {
             </a>
 
             <!-- darkmode switch -->
+            <input type="checkbox">
 
             <!-- trailer -->
-            <!-- <div></div> -->
+            <div>
+                <img src="https://media.themoviedb.org/t/p/w220_and_h330_face${movieJson.poster_path}" alt="${movieJson.original_title}">
+            </div>
         </header>
 
         <!-- main -------------------------------------------------------------------------------------->
@@ -96,14 +99,38 @@ function htmlInserter(movieJson, genreJsonData) {
                         <td>${runeTimeConverter(movieJson.runtime)}</td>
 
                         <td>${movieJson.spoken_languages.map(function (test) {
-                           return (test.english_name)
-                        }).join(" ")}</td>
+        return (test.english_name)
+    }).join(" ")}</td>
                     
                         <td>
                             ${"PG-13"}
                         </td>
                     </tr> 
                 </table>
+            </section>
+
+            <section class="description">
+                <h2>
+                    Description
+                </h2>
+
+                <p>${movieJson.overview}</p>
+            </section>
+
+            <section class="cast">
+                <div>
+                    <h2>
+                        Cast
+                    </h2>
+
+                    <!-- button see more -->
+                </div>
+
+                <section>
+                    <ul>
+                        ${""}
+                    </ul>
+                </section>
             </section>
         </main>
         
@@ -128,16 +155,16 @@ function runeTimeConverter(runtime) {
 
     let minutesConverted = runtime / 60
     console.log(minutesConverted);
-    
+
     // hours -------------------------------------------
-    let hours = minutesConverted.toString().slice(0,1)
+    let hours = minutesConverted.toString().slice(0, 1)
     console.log(hours);
-    
-    let minutesNotSliced = minutesConverted.toString().slice(2,4) * 60;
+
+    let minutesNotSliced = minutesConverted.toString().slice(2, 4) * 60;
     console.log(minutesNotSliced)
 
-    let minutes = minutesNotSliced.toString().slice(0,2)
+    let minutes = minutesNotSliced.toString().slice(0, 2)
 
     return (hours + "h " + minutes + "m");
-    
+
 };
