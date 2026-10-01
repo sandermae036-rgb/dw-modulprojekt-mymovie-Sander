@@ -2,35 +2,39 @@ body {
     background-color: #363636;
 }
 
-#root{
-	margin:0 auto;
+#root {
+    margin: 0 auto;
     max-width: 375px;
     background-color: #fff;
 }
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 
     /* gør at den ikke ændre sig ud med padding når width og andre ting er angivet */
-    box-sizing:border-box;
+    box-sizing: border-box;
+
+    /* font awsome */
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
 }
 
-p{
-    padding-bottom:1em;
-    line-height:1.4em;
+p {
+    padding-bottom: 1em;
+    line-height: 1.4em;
 }
 
-img{
-    max-width:100%;
-    height:auto;    
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-a{
+a {
     text-decoration: none;
     color: #000;
 }
 
-ul{
+ul {
     list-style: none;
 }
