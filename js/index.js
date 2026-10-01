@@ -150,18 +150,18 @@ function htmlInserter(nowplayingData, popularData, genreData) {
             <article class="nowShowing__movies__movie">
                 <div class="movieImg">
                     <img src="https://media.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}" alt="${movie.original_title}">
-
-                    <h3>${movie.title}</h3>
-
-                    <p class="movie--rating">${ratingRemake(movie.vote_average.toString().slice(0, 3))}/10 IMDb</p>
                 </div>
+            
+                <h3>${movie.title}</h3>
+
+                <p class="movie--rating"> <i class="fa-solid fa-star"></i> ${ratingRemake(movie.vote_average.toString().slice(0, 3))}/10 IMDb</p>
             </article>
         </a>
         `
     });
 
     // populare ----------------------------------------------------------------------------------------------------------------------------------------------
-    let populare = document.querySelector(".populare")
+    let populare = document.querySelector(".populare__movies")
 
     popularData.forEach(function (movie) {
 

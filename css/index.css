@@ -34,7 +34,33 @@ main h2 {
 
 /* now showing -------------------------------*/
 main .nowShowing .nowShowing__movies {
+    overflow-x: scroll;
     display: flex;
+    gap: 1rem;
+}
+
+main .nowShowing .nowShowing__movies__movie {
+    width: 100%;
+    height: 100%;
+}
+
+.nowShowing__movies__movie h3{
+    font-size: 0.87rem;
+}
+
+.nowShowing__movies__movie .movieImg {
+    width: 8rem;
+    img{border-radius: 0.5rem;}
+}
+
+.movie--rating {
+    font-size: 0.7rem;
+    color: #9C9C9C;
+    margin: 0.5rem 0;
+}
+
+.movie--rating i {
+    color: #FFC319;
 }
 
 /* populare ----------------------------------*/
