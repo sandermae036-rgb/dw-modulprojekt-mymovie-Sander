@@ -70,19 +70,31 @@ function htmlInserter(movieJson, genreJsonData) {
             <section class="generelInfo">
                 <h1>${movieJson.title}</h1>
 
-                <div class="generelInfo--bookmark">
+                <div class="generelInfo__bookmark">
                     <i class="fa-regular fa-bookmark"></i>
                 </div>
 
-                <p class="generelInfo--rating">${ratingRemake(movieJson.vote_average.toString().slice(0, 3))}/10 IMDb</p>
+                <p class="generelInfo__rating">${ratingRemake(movieJson.vote_average.toString().slice(0, 3))}/10 IMDb</p>
 
-                <ul>
+                <ul class="generalInfo__genres">
                    ${movieJson.genres.map(function (id) {
                     return (`
                         <li>${genreJsonData.find((genre) => genre.id == id.id).name}</li>
                     `)
                    }).join(" ")}
                 </ul>
+
+                <table>
+                    <tr>
+                        <th>length</th>
+                        <th>Language</th>
+                        <th>rating</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>${runeTimeConverter(movieJson.runtime)}</td>
+                    </tr>
+                </table>
             </section>
         </main>
         
@@ -102,3 +114,19 @@ function ratingRemake(rating) {
         return rating;
     }
 }
+
+function runeTimeConverter(runtime) {
+    let timeInHours = runtime / 60
+    console.log(timeInHours);
+
+    // slice so it only takes the first number(hours)
+    let hours = timeInHours.toString().slice(0,1)
+    
+    // slice so it only take the second two numbers(minutes)
+    let minutes = timeInHours.toString().slice(2,4)
+    
+
+    // return those as a string with (hours)h and (minutes)m
+    return (hours + "h " + minutes + "m")
+    
+};
