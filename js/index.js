@@ -77,9 +77,9 @@ function htmlInserter(nowplayingData, popularData, genreData) {
             </h1>
 
             <!-- Darkmode button -->
-            <!-- <div class="header__DarkMode">
-                    <i class="fa-solid fa-toggle-off"></i>
-                </div> -->
+            <div class="header__DarkMode">
+                <i class="fa-solid fa-toggle-off"></i>     
+            </div>
         </header>
 
         <!-- main -------------------------------------------------------------------------------------->
@@ -142,8 +142,6 @@ function htmlInserter(nowplayingData, popularData, genreData) {
 
     // // now showing -------------------------------------------------------------------------------------------------------------------------------------------
     let nowShowing = document.querySelector(".nowShowing")
-    console.log(nowShowing);
-
 
     nowplayingData.forEach(function (movie) {
 
@@ -196,7 +194,11 @@ function htmlInserter(nowplayingData, popularData, genreData) {
         `
 
     });
-    console.log("test", genreInset(27, genreData));
+
+    let darkModeSwitch = document.querySelector(".header__DarkMode")
+    console.log(darkModeSwitch);
+
+    darkModeSwitch.addEventListener("click", switchDark);
 
 };
 
@@ -207,4 +209,18 @@ function ratingRemake(rating) {
     } else {
         return rating;
     }
+}
+
+function switchDark() {
+    const faSwitch = this.querySelector(".fa-solid")
+    
+    if (faSwitch.classList.contains("fa-toggle-off")) {
+        faSwitch.classList.remove("fa-toggle-off")
+        faSwitch.classList.add("fa-toggle-on")
+        
+    } else if (faSwitch.classList.contains("fa-toggle-on")) {
+        faSwitch.classList.remove("fa-toggle-on")
+        faSwitch.classList.add("fa-toggle-off")
+    }
+
 }
