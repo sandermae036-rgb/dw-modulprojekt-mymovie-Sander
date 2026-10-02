@@ -78,7 +78,10 @@ function htmlInserter(nowplayingData, popularData, genreData) {
 
             <!-- Darkmode button -->
             <div class="header__DarkMode">
-                <i class="fa-solid fa-toggle-off"></i>     
+                <label class="switch">
+                    <input type="checkbox" checked>
+                     <span class="slider"></span>
+                    </label><br><br>     
             </div>
         </header>
 

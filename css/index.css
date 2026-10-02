@@ -9,7 +9,8 @@ header h1 {
     font-size: 1rem;
 }
 
-.header__DarkMode i {
+/* toogle switch ---------------------------- */
+.header__DarkMode input {
     font-size: 2.3rem;
     color: #AAA9B1;
     position: absolute;
