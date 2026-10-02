@@ -1,8 +1,8 @@
-/* header -------------------------------------------------------------------------------------------*/
+/* header ------------------------------------------------------------------------------------------------------------------------------------------------------*/
 header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 300px;
+    grid-template-rows: 250px;
 }
 
 header div {
@@ -37,17 +37,76 @@ header input {
     margin-top: 1rem;
 }
 
-/* main ------------------------------------------------------------------------------------------- */
+/* main -------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* generel info ------------------------------------------------------------------------------------------*/
+/* headline ---------------------------------------------------------------- */
 main {
     position: relative;
     background-color: #fff;
-    padding: 1.5rem;   
+    padding: 1.5rem;
     border-radius: 1rem;
 }
 
+.generelInfo .headline {
+    display: flex;
+    justify-content: space-between;
+}
+
 main .generelInfo h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    padding-right: 7rem;
+    padding-bottom: 1rem;
+}
+
+/* rating ------------------------------------------------------------- */
+
+.generelInfo__rating {
+    font-size: 0.7rem;
+    color: #9C9C9C;
+}
+
+main .generelInfo__rating i {
+    color: #FFC319;
 }
 
 
-/* footer ------------------------------------------------------------------------------------------ */
+/* genres ----------------------------------------------------------- */
+.generalInfo__genres {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 8rem;
+    padding-bottom: 1rem;
+}
+
+.generalInfo__genres li {
+    background-color: #DBE3FF;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    color: #88A4E8;
+    font-size: 0.56rem;
+}
+
+/* table (length/language/rating)----------------------------------- */
+main .generelInfo table {
+    width: 80%;
+    font-size: 0.7rem;
+    padding-bottom: 2rem;
+}
+
+main .generelInfo table th {
+    text-align: left;
+}
+
+
+/* description ---------------------------------------------------------------------------------------*/
+.description h2{
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.description p {
+    font-size: 0.75rem;
+    color: #9C9C9C;
+}
+
+/* footer ----------------------------------------------------------------------------------------------------------------------------------------------------------------*/

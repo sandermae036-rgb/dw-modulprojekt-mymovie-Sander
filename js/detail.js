@@ -98,7 +98,7 @@ function htmlInserter(movieJson) {
             </section>
 
             <section class="description">
-                <h2>
+                <h2 id="merryweather">
                     Description
                 </h2>
 
