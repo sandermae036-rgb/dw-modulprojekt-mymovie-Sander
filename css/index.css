@@ -119,11 +119,10 @@ main .nowShowing .nowShowing__movies__movie {
 footer {
     background-color: #fff;
     box-shadow: #707070 0px 6px 20px;
-    height: 100%;
 }
 
 footer section {
-    padding: 1.3rem;
+    padding: 1.3rem 1.3rem 0.6rem;
     display: flex;
     justify-content: space-around;
 }

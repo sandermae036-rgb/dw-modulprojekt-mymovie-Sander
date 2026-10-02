@@ -80,8 +80,7 @@ function htmlInserter(nowplayingData, popularData, genreData) {
             <div class="header__DarkMode">
                 <label class="switch">
                     <input type="checkbox" checked>
-                     <span class="slider"></span>
-                    </label><br><br>     
+                     <span class="slider"></span>  
             </div>
         </header>
 
@@ -126,17 +125,19 @@ function htmlInserter(nowplayingData, popularData, genreData) {
 
                 <!-- films -->
                 <a href="#">
-                    hello
+                    <div>
+                        <img src="../img/BookmarkFilm.svg" alt="Movies_page">
+                    </div>
                 </a>
 
                 <!-- tickets -->
                 <a href="#">
-                    hello
+                    <img src="../img/BookmarkTicket.svg" alt="tickets">
                 </a>
 
                 <!-- bookmarked -->
                 <a href="#">
-                    hello
+                    <img src="../img/Bookmark.svg" alt="bookmarked">
                 </a>
 
             </section>
