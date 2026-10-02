@@ -14,6 +14,9 @@ async function idFetch(id) {
             }
         });
 
+        console.log(IdPromise);
+        
+
         // turn it into json --------------------------------------------------------------
         let movieJson = await IdPromise.json()
         console.log(movieJson);
@@ -32,12 +35,14 @@ idFetch(movieId)
 const root = document.querySelector("#root");
 
 // html inserter -----------------------------------------------------------------------------------------
-function htmlInserter(movieJson) {
+function htmlInserter(movieJson) { 
+    
+console.log(movieJson.videos.results[0]);
 
     root.innerHTML = `
+        
         <!-- header ------------------------------------------------------------------------------------------>
-        <header>
-            
+        <header>   
             <!-- back arrow -->
             <a href="index.html">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -46,13 +51,18 @@ function htmlInserter(movieJson) {
             <!-- darkmode switch -->
             <input type="checkbox">
 
+            
             <!-- trailer -->
-            <div>
-                <iframe src="https://www.youtube.com/embed/${trailerFinder(movieJson.videos.results)}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-           
-        </header>
+            
+            ${console.log(movieJson.videos.results[0])}
 
+            <div>${(movieJson.videos.results[0] == undefined)? 
+            
+            `<img src="https://media.themoviedb.org/t/p/w220_and_h330_face${movieJson.poster_path}" alt="no trailers/image of ${movieJson.title}">` : 
+            
+            `<iframe src="https://www.youtube.com/embed/${trailerFinder(movieJson.videos.results)}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`}
+            </div>
+        </header>
         <!-- main -------------------------------------------------------------------------------------->
         <main>
             <section class="generelInfo">
