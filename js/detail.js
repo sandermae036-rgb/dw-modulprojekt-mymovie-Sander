@@ -56,13 +56,15 @@ function htmlInserter(movieJson) {
         <!-- main -------------------------------------------------------------------------------------->
         <main>
             <section class="generelInfo">
-                <h1>${movieJson.title}</h1>
+                <div class="headline">
+                    <h1>${movieJson.title}</h1>
 
-                <div class="generelInfo__bookmark">
-                    <i class="fa-regular fa-bookmark"></i>
+                    <div class="generelInfo__bookmark">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
                 </div>
 
-                <p class="generelInfo__rating">${ratingRemake(movieJson.vote_average.toString().slice(0, 3))}/10 IMDb</p>
+                <p class="generelInfo__rating"> <i class="fa-solid fa-star"></i> ${ratingRemake(movieJson.vote_average.toString().slice(0, 3))}/10 IMDb</p>
 
                 <ul class="generalInfo__genres">
                    ${movieJson.genres.map(function (genre) {
@@ -125,7 +127,7 @@ function htmlInserter(movieJson) {
                                     <h3>${castPerson.name}</h3>
                                 </article>
                             </li>
-                        `)}).join(" ")}
+                            `)}).join(" ")}
                     </ul>
                 </section>
             </section>
@@ -172,11 +174,11 @@ function runeTimeConverter(runtime) {
 function trailerFinder(videos) {
 
     let firstTrailer = videos.find(video => video.type == "Trailer");
-    
+
     console.log(firstTrailer.key);
 
 
     return (firstTrailer.key)
-    
-    
+
+
 }

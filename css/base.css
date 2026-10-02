@@ -15,8 +15,9 @@ body {
     /* gør at den ikke ændre sig ud med padding når width og andre ting er angivet */
     box-sizing: border-box;
 
-    /* font awsome */
-    font-family: "Merriweather", serif;
+
+    /* mullish */
+    font-family: "Mulish", sans-serif;
     font-optical-sizing: auto;
 }
 
@@ -37,4 +38,12 @@ a {
 
 ul {
     list-style: none;
+}
+
+#merryweather {
+    /* font awsome */
+    /* merryweather for headline */
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+
 }

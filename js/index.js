@@ -72,7 +72,7 @@ function htmlInserter(nowplayingData, popularData, genreData) {
         <!-- header ------------------------------------------------------------------------------------------>
         <header>
             <!-- headline -->
-            <h1>
+            <h1 id="merryweather">
                 MyMovies
             </h1>
 
