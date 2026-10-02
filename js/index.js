@@ -179,7 +179,7 @@ function htmlInserter(nowplayingData, popularData, genreData) {
                 
                     <h3>${movie.title}</h3>
 
-                    <p class="movie--rating">${ratingRemake(movie.vote_average.toString().slice(0, 3))}/10 IMDb</p>
+                    <p class="movie--rating"> <i class="fa-solid fa-star"></i> ${ratingRemake(movie.vote_average.toString().slice(0, 3))}/10 IMDb</p>
 
                     <div class="movie__genre">
                         <ul>
