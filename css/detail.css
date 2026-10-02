@@ -80,7 +80,7 @@ main .generelInfo__rating i {
 
 .generalInfo__genres li {
     background-color: #DBE3FF;
-    padding: 0.5rem;
+    padding: 0.3rem;
     border-radius: 1rem;
     color: #88A4E8;
     font-size: 0.56rem;
@@ -99,14 +99,45 @@ main .generelInfo table th {
 
 
 /* description ---------------------------------------------------------------------------------------*/
+.description {
+    padding-bottom: 1rem;
+}
+
 .description h2{
     padding-bottom: 0.5rem;
     font-size: 1rem;
+    color: #110E47;
 }
 
 .description p {
     font-size: 0.75rem;
     color: #9C9C9C;
+}
+
+
+/* cast --------------------------------------------------------------------------------------------*/
+main .cast h2{
+    font-size: 1rem;
+    color: #110E47;
+}
+
+main .cast section {
+    margin-top: 1rem;
+}
+
+main section ul{
+    display: flex;
+    gap: 1rem;
+    overflow: scroll;
+}
+
+main section ul article div {
+    width: 4.5rem;
+}
+
+main section ul article h3 {
+    font-size: 0.7rem;
+    color: #110E47;
 }
 
 /* footer ----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
